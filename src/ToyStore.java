@@ -1,6 +1,7 @@
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,8 +33,9 @@ public class ToyStore {
 
 	public void getToy() throws IOException {
 		FileWriter writer = new FileWriter("log.md",true);
+		
 		if (!toysQueue.isEmpty()) {
-			writer.write(toysQueue.poll().toString());
+			writer.write(toysQueue.poll().toString() + LocalDateTime.now());
 		} 
 		writer.flush();
 		writer.close();
@@ -46,5 +48,8 @@ public class ToyStore {
 			}
 		}
 		return false;
+	}
+	public void getInfo() {
+		System.out.println(toysList);
 	}
 }
