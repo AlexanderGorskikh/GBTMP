@@ -2,14 +2,10 @@
 import java.util.Scanner;
 
 public class Viewer {
-	static ToyStore test;
-
-	public Viewer() {
-		test = new ToyStore();
-	}
+	static final ToyStore test = new ToyStore();
+	private static final Scanner scanner= new Scanner(System.in);
 
 	static void start() {
-		Scanner scanner = new Scanner(System.in);
 		boolean close = true;
 		do {
 			menu();
@@ -22,13 +18,11 @@ public class Viewer {
 			default -> System.out.println("Команда не распознана");
 			}
 		} while (close);
-		scanner.close();
 	}
 
 	static void addToys() {
-		Scanner s = new Scanner(System.in);
 		System.out.println("Введите строку формата: \"ID toyName count weight\"");
-		String input = s.nextLine();
+		String input = scanner.nextLine();
 		String[] toy = input.split(" ");
 		try {
 			int ID = Integer.parseInt(toy[0]);
@@ -39,7 +33,6 @@ public class Viewer {
 		} catch (Exception e) {
 			System.out.println("Ошибка, несовместимый формат, или недостаточно аргументов");
 		}
-		s.close();
 	}
 	static void changeWeight() {
 		Scanner s = new Scanner(System.in);

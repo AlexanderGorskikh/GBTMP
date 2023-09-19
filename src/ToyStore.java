@@ -7,11 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ToyStore {
 	private List<Toys> toysList = new ArrayList<Toys>();
 	private Queue<Toys> toysQueue = new LinkedList<Toys>();
-
 	public void addToys(Toys toys) {
 		toysList.add(toys);
 	}
